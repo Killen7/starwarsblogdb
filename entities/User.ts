@@ -2,6 +2,9 @@ import {
     Entity, Column, PrimaryGeneratedColumn, ManyToMany, 
     BaseEntity, JoinTable
   } from 'typeorm';
+
+import { Planet } from "./Planet"
+import { Character } from "./Character"
   
   // import {Planet} from "./Planet"
   @Entity()
@@ -21,8 +24,12 @@ import {
     @Column({unique: true})
     password: string;
   
-    // @ManyToMany(() => Planet)
-    // @JoinTable()
-    // planets: Planet[];
+    @ManyToMany(() => Planet)
+    @JoinTable()
+    planets: Planet[];
+
+    @ManyToMany(() => Character)
+    @JoinTable()
+    characters: Character[];
     
   }

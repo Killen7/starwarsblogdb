@@ -24,49 +24,33 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 exports.__esModule = true;
-exports.User = void 0;
+exports.Character = void 0;
 var typeorm_1 = require("typeorm");
-var Planet_1 = require("./Planet");
-var Character_1 = require("./Character");
 // import {Planet} from "./Planet"
-var User = /** @class */ (function (_super) {
-    __extends(User, _super);
-    function User() {
+var Character = /** @class */ (function (_super) {
+    __extends(Character, _super);
+    function Character() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     __decorate([
         typeorm_1.PrimaryGeneratedColumn(),
         __metadata("design:type", Number)
-    ], User.prototype, "id");
+    ], Character.prototype, "id");
     __decorate([
         typeorm_1.Column(),
         __metadata("design:type", String)
-    ], User.prototype, "first_name");
+    ], Character.prototype, "name");
     __decorate([
         typeorm_1.Column(),
-        __metadata("design:type", String)
-    ], User.prototype, "last_name");
+        __metadata("design:type", Number)
+    ], Character.prototype, "height");
     __decorate([
-        typeorm_1.Column({ unique: true }),
-        __metadata("design:type", String)
-    ], User.prototype, "email");
-    __decorate([
-        typeorm_1.Column({ unique: true }),
-        __metadata("design:type", String)
-    ], User.prototype, "password");
-    __decorate([
-        typeorm_1.ManyToMany(function () { return Planet_1.Planet; }),
-        typeorm_1.JoinTable(),
-        __metadata("design:type", Array)
-    ], User.prototype, "planets");
-    __decorate([
-        typeorm_1.ManyToMany(function () { return Character_1.Character; }),
-        typeorm_1.JoinTable(),
-        __metadata("design:type", Array)
-    ], User.prototype, "characters");
-    User = __decorate([
+        typeorm_1.Column(),
+        __metadata("design:type", Number)
+    ], Character.prototype, "mass");
+    Character = __decorate([
         typeorm_1.Entity()
-    ], User);
-    return User;
+    ], Character);
+    return Character;
 }(typeorm_1.BaseEntity));
-exports.User = User;
+exports.Character = Character;
